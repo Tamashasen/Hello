@@ -1,7 +1,7 @@
 # Hello
 React Native- Firebase Messaging App
 
-App Feature
+App Features
 * Chat with Friends or collegues
 * Make calls
 * Manage your profile
