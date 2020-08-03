@@ -3,7 +3,7 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import { Colors, Styles } from '../Shared'
+import { Colors, Styles } from '../utils/constants'
 
 export default class MyTextField extends Component {
     render() {

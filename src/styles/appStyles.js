@@ -78,6 +78,7 @@ export default StyleSheet.create({
   },
   logocontainer:{
     alignItems:'center',
+    marginBottom: 75,
     
   },
   logotext:{

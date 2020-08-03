@@ -1,102 +1,84 @@
-import React, {Component} from 'react';
-import {View,Image, TextInput,TouchableOpacity, Dimensions } from 'react-native'
-import appStyles from './src/styles/appStyles';
-//import background from './src/utils/background.jpg'
-import Logo from './src/utils/logo.png'
-import { Icon } from 'native-base';
+//import liraries
+import 'react-native-gesture-handler';
+import React, { Component } from 'react';
+import {StyleSheet} from 'react-native';
+//import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import Home from './src/screens/homeScreen';
+import Login from './src/screens/login';
+import Signup from './src/screens/signup';
 
 
 
+const Stack = createStackNavigator({
+  Signup:Signup,
+  Home:Home,
+  Login:Login,
+},
+  {
+    initialRouteName: 'Signup'
+  });
 
-const {width:WIDTH}= Dimensions.get('window')
+// create a component
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        mobnum: '',
-        password: '',
-        errorMessage: null
-    }
-
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.props.navigator.push('friendsList')
-            this.setState({
-                loading: false
-            })
+function MyStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Signup"
+      screenOptions={{
+        headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: '#3740FE',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+      <Stack.Screen 
+        name="Signup" 
+        component={Signup} 
+        options={{ title: 'Signup' }}
+      />       
+      <Stack.Screen 
+        name="Login" 
+        component={Login} 
+        options={
+          {title: 'Login'},
+          {headerLeft: null} 
         }
-    });
+      />
+      <Stack.Screen 
+       name="Home" 
+       component={Home} 
+       options={
+         { title: 'Home' },
+         {headerLeft: null} 
+       }
+      />
+    </Stack.Navigator>
+  );
 }
 
-static route = {
-    navigationBar: {
-        title: 'Login',
-        ... Styles.NavBarStyles
-    }
-}
+/*export default function App(AppNavigator) {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
+}*/
+export default createAppContainer(Stack);
 
-login = () => {
-    this.setState({
-        errorMessage: null,
-        loading: true 
-    })
-    const {mobnum, password} = this.state;
-    firebase.auth()
-        .signInWithEmailAndPassword(mobnum, password)
-        .catch((error) => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            this.setState({
-                errorMessage,
-                loading: false
-            })
-        });
-}
+// define your styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%'
 
-renderErrorMessage = () => {
-    if(this.state.errorMessage)
-        return <Text style={appStyles.error}>{this.state.errorMessage}</Text>
-}
-  render() {
-    return (
-      <View style= {appStyles.backgroundcontainer}>
-        <View style={appStyles.logocontainer}>
-          <Image source={Logo} style={appStyles.logo}/>
-          {/*<Text style={appStyles.logotext}>
-            Hello
-    </Text>*/}
-        </View>
-        <View>
-          {/*<Icon name ={'ios-person-outline'} size={28} color={'white'} style={appStyles.inputicon}/>*/}
-          <TextInput
-            style={appStyles.input}
-            value={this.state.mobnum}
-            placeholder={'MobileNumber'}
-            keyboardType ='numeric'
-            placeholderTextColor={'rgba(255,255,255,0.7)'}
-            underlineColorAndroid='transparent'
-          />
-          <TextInput
-            style={appStyles.input}
-            value={this.state.password}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            placeholderTextColor={'rgba(255,255,255,0.7)'}
-            underlineColorAndroid='transparent'
-          />
-          <Button primary onPress={this.login}>Login</Button>
-                {this.renderErrorMessage()}
-                <Separator />
-                <Button secondary onPress={() => {
-                    this.props.navigator.push('signup');
-                } }>Sign Up</Button>
-                <Button secondary onPress={() => {
-                    this.props.navigator.push('forgetPassword');
-                } }>Forget Password</Button>
-        </View>
-      </View>
-    );  
-  }
-}
+
+  },
+});
+

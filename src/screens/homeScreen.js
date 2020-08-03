@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
-import {Container,Header,Title,Button,Right,Body,Icon,Text,Tabs,Tab,ScrollableTab,TabHeading,Badge,} from 'native-base';
-import ChatScreen from './src/screens/chatScreen';
-import StatusScreen from './src/screens/statusScreen';
-import CallScreen from './src/screens/callScreen';
+import React, { Component } from 'react';
+import { Container, Header, Title, Button, Right, Body, Icon, Text, Tabs, Tab, ScrollableTab, TabHeading, Badge } from 'native-base';
 import {StatusBar} from 'react-native';
-import appStyles from './src/styles/appStyles';
-import SettingsScreen from './src/screens/settingsScreen';
+import ChatScreen from './chatScreen';
+import StatusScreen from './statusScreen';
+import CallScreen from './callScreen'
+import appStyles from '../styles/appStyles';
+import firebase from '../components/database/firebase';
+import SettingsScreen from './settingsScreen';
+//import CameraScreen from './cameraScreen';
 //import { RNCamera } from 'react-native-camera';
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -24,6 +26,16 @@ import SettingsScreen from './src/screens/settingsScreen';
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      uid: '',
+      name: ''
+    }
+  }
+  signOut = () => {
+    firebase.auth().signOut().then(() => {
+      this.props.navigation.navigate('Login')
+    })
+      .catch(error => this.setState({ errorMessage: error.message }))
   }
   componentDidMount() {
     setTimeout(() => {
@@ -31,6 +43,7 @@ export default class Home extends Component {
     }, 100);
   }
   render() {
+    //this.state = { name: firebase.auth().currentUser.name }
     return (
       <Container>
         <Header noLeft style={appStyles.headerBackgroundColor}>
@@ -43,7 +56,7 @@ export default class Home extends Component {
             </Button>
             <Button icon transparent>
               <Icon type="MaterialIcons" name="more-vert" />
-              
+
             </Button>
           </Right>
         </Header>
@@ -56,10 +69,11 @@ export default class Home extends Component {
           tabBarActiveTextColor="red"
           initialPage={3}
           tabBarBackgroundColor="#04213E">
-      
+
+
           <Tab
             heading={
-              <TabHeading style={{backgroundColor: '#04213E'}}>
+              <TabHeading style={{ backgroundColor: '#04213E' }}>
                 <Text style={appStyles.tabsText}>CHATS</Text>
                 <Badge style={appStyles.badge}>
                   <Text style={appStyles.badgeText}>2</Text>
@@ -68,30 +82,23 @@ export default class Home extends Component {
             }>
             <ChatScreen />
           </Tab>
+
           <Tab
             heading={
-              <TabHeading style={{backgroundColor: '#04213E'}}>
-                <Text style={appStyles.tabsText}>STATUS</Text>
-              </TabHeading>
-            }>
-            <StatusScreen />
-          </Tab>
-          <Tab
-            heading={
-              <TabHeading style={{backgroundColor: '#04213E'}}>
+              <TabHeading style={{ backgroundColor: '#04213E' }}>
                 <Text style={appStyles.tabsText}>CALLS</Text>
               </TabHeading>
             }>
             <CallScreen />
           </Tab>
-          {/*<Tab
+          <Tab
             heading={
-              <TabHeading style={{backgroundColor: '#04213E'}}>
+              <TabHeading style={{ backgroundColor: '#04213E' }}>
                 <Text style={appStyles.tabsText}>SETTINGS</Text>
               </TabHeading>
             }>
             <SettingsScreen />
-          </Tab>*/}
+          </Tab>
         </Tabs>
       </Container>
     );
