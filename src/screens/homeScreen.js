@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Button, Right, Body, Icon, Text, Tabs, Tab, ScrollableTab, TabHeading, Badge } from 'native-base';
+import { Container, Header, Title, Button, Right, Body, Text, Tabs, Tab, ScrollableTab, TabHeading, Badge } from 'native-base';
 import {StatusBar} from 'react-native';
 import ChatScreen from './chatScreen';
 import StatusScreen from './statusScreen';
@@ -7,6 +7,7 @@ import CallScreen from './callScreen'
 import appStyles from '../styles/appStyles';
 import firebase from '../components/database/firebase';
 import SettingsScreen from './settingsScreen';
+import Icon from 'react-native-vector-icons/FontAwesome';
 //import CameraScreen from './cameraScreen';
 //import { RNCamera } from 'react-native-camera';
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -52,10 +53,10 @@ export default class Home extends Component {
           </Body>
           <Right>
             <Button icon transparent>
-              <Icon type="MaterialIcons" name="search" />
+              <Icon style={{ color: 'snow'}} type="MaterialIcons" name="search" />
             </Button>
             <Button icon transparent>
-              <Icon type="MaterialIcons" name="more-vert" />
+              <Icon style={{ color: 'snow'}} type="MaterialIcons" name="sign-out" />
 
             </Button>
           </Right>

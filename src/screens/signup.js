@@ -62,6 +62,8 @@ export default class Signup extends Component {
     }
     return (
       <View style={styles.container}>
+        <Text style={appStyles.myname}>Tamasha Seneviratne - 17001617</Text>
+        
         <View style={appStyles.logocontainer}>
           <Image source={Logo} style={appStyles.logo} />
         </View>

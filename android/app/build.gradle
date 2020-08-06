@@ -136,6 +136,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -197,6 +198,7 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'androidx.multidex:multidex:2.0.1' 
 
     
 

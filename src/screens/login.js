@@ -61,6 +61,7 @@ export default class Login extends Component {
         }
         return (
             <View style={appStyles.backgroundcontainer}>
+            
                 <View style={appStyles.logocontainer}>
                     <Image source={Logo} style={appStyles.logo} />
                 </View>

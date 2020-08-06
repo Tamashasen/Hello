@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {ListItem,Left,Thumbnail,Body,Right,Content,Text,Badge,Container,Fab,Icon,} from 'native-base';
 import appStyles from '../styles/appStyles';
+//import { GiftedChat } from 'react-native-gifted-chat';
 
-export default class ChatScreen extends Component {
+export default class ChatScreen extends React.Component{
   render() {
+    
     return (
       <Container>
         <Content>
@@ -17,8 +19,8 @@ export default class ChatScreen extends Component {
               />
             </Left>
             <Body>
-              <Text>Er Gulshan</Text>
-              <Text note>How are you Harinder?</Text>
+              <Text>Dinusha Seneviratne</Text>
+              <Text note>How are you?</Text>
             </Body>
             <Right>
               <Text note style={{color: '#25D366'}}>
@@ -39,12 +41,12 @@ export default class ChatScreen extends Component {
               />
             </Left>
             <Body>
-              <Text>Mohammad</Text>
-              <Text note>How are you Harinder?</Text>
+              <Text>Madujith Perera</Text>
+              <Text note>When are you coming today?</Text>
             </Body>
             <Right>
               <Text note style={{color: '#25D366'}}>
-                3:43 pm
+                5:24 am
               </Text>
               <Badge style={appStyles.badgeChats}>
                 <Text style={appStyles.badgeTextChats}>4</Text>
@@ -61,11 +63,11 @@ export default class ChatScreen extends Component {
               />
             </Left>
             <Body>
-              <Text>Brian</Text>
-              <Text note>How are you Harinder?</Text>
+              <Text>Vasanthi Balasuriya</Text>
+              <Text note>Can you send me the details?</Text>
             </Body>
             <Right>
-              <Text note>3:43 pm</Text>
+              <Text note>7:56 pm</Text>
             </Right>
           </ListItem>
           <ListItem avatar>
@@ -78,16 +80,16 @@ export default class ChatScreen extends Component {
               />
             </Left>
             <Body>
-              <Text>Michael</Text>
-              <Text note>How are you Harinder?</Text>
+              <Text>Nathasha Balasuiya</Text>
+              <Text note>Hi! Where are you guys?</Text>
             </Body>
             <Right>
-              <Text note>3:43 pm</Text>
+              <Text note>8:43 pm</Text>
             </Right>
           </ListItem>
         </Content>
         <Fab style={appStyles.fabColor} position="bottomRight">
-          <Icon type="MaterialIcons" name="chat" />
+          <Icon type="MaterialIcons" name="chat"/>
         </Fab>
       </Container>
     );

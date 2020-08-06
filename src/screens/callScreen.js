@@ -13,12 +13,12 @@ export default class CallScreen extends Component {
               <Thumbnail
                 source={{
                   uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/buddhasource/128.jpg',
+                  'https://s3.amazonaws.com/uifaces/faces/twitter/mauriolg/128.jpg',
                 }}
               />
             </Left>
             <Body>
-              <Text>Mohammad</Text>
+              <Text>Dinusha Seneviratne</Text>
               <View
                 style={{
                   flex: 1,
@@ -46,12 +46,12 @@ export default class CallScreen extends Component {
               <Thumbnail
                 source={{
                   uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/buddhasource/128.jpg',
+                  'https://s3.amazonaws.com/uifaces/faces/twitter/naitanamoreno/128.jpg',
                 }}
               />
             </Left>
             <Body>
-              <Text>Mohammad</Text>
+              <Text>Nathasha Balasuriya</Text>
               <View
                 style={{
                   flex: 1,
