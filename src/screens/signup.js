@@ -56,13 +56,13 @@ export default class Signup extends Component {
     if (this.state.isLoading) {
       return (
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E" />
+          
         </View>
       )
     }
     return (
       <View style={styles.container}>
-        <Text style={appStyles.myname}>Tamasha Seneviratne - 17001617</Text>
+        
         
         <View style={appStyles.logocontainer}>
           <Image source={Logo} style={appStyles.logo} />
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: '#3740FE',
-    marginTop: 25,
+    marginTop: 5,
     textAlign: 'center'
   },
   preloader: {

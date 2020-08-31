@@ -75,6 +75,7 @@ export default StyleSheet.create({
     backgroundColor:'white'
   },
   logo:{
+    marginTop: 1,
     width:175,
     height:175,
   
@@ -93,7 +94,7 @@ export default StyleSheet.create({
     fontSize: 20,
     color: 'black',
     fontWeight:'500',
-    marginBottom: 80,
+    marginBottom: 50,
     opacity:0.8,
     alignSelf:'center',
     

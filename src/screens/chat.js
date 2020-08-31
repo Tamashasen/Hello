@@ -1,6 +1,6 @@
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-import firebaseSvc from '../../FireBaseSvc/FirebaseSvc';
+import firebaseSvc from '../../FirebaseSvc';
 
 type Props = {
   name?: string,
